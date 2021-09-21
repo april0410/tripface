@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icbc.bcss.member.face.operationtools.dao.BcssMemOrderInfoDao">
+  <resultMap id="BaseResultMap" type="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderInfoModel">
+    <id column="SEQ_ID" jdbcType="BIGINT" property="seqId" />
+    <result column="CORP_ID" jdbcType="CHAR" property="corpId" />
+    <result column="FACE_ID" jdbcType="VARCHAR" property="faceId" />
+    <result column="PERSON_ID" jdbcType="VARCHAR" property="personId" />
+    <result column="CORGNO" jdbcType="VARCHAR" property="corgno" />
+    <result column="TRXSEQNO" jdbcType="VARCHAR" property="trxseqno" />
+    <result column="MANUFACTURERID" jdbcType="VARCHAR" property="manufacturerid" />
+    <result column="IMEINO" jdbcType="VARCHAR" property="imeino" />
+    <result column="TERMINALNO" jdbcType="VARCHAR" property="terminalno" />
+    <result column="TIMESTAMP" jdbcType="VARCHAR" property="timestamp" />
+    <result column="CLIENTTRANSNO" jdbcType="VARCHAR" property="clienttransno" />
+    <result column="TRXTIME" jdbcType="TIMESTAMP" property="trxtime" />
+    <result column="CLIENTTYPE" jdbcType="VARCHAR" property="clienttype" />
+    <result column="DOCTYPE" jdbcType="VARCHAR" property="doctype" />
+    <result column="MERNO" jdbcType="VARCHAR" property="merno" />
+    <result column="MERORDERNO" jdbcType="VARCHAR" property="merorderno" />
+    <result column="MEMACCSECRET" jdbcType="VARCHAR" property="memaccsecret" />
+    <result column="TOTALAMT" jdbcType="DECIMAL" property="totalamt" />
+    <result column="PAYAMT" jdbcType="DECIMAL" property="payamt" />
+    <result column="PAYTYPE" jdbcType="VARCHAR" property="paytype" />
+    <result column="ORDERSRC" jdbcType="VARCHAR" property="ordersrc" />
+    <result column="DATASRC" jdbcType="VARCHAR" property="datasrc" />
+    <result column="INDUSTRY" jdbcType="VARCHAR" property="industry" />
+    <result column="TRADEMODE" jdbcType="VARCHAR" property="trademode" />
+    <result column="MSGFLAG" jdbcType="VARCHAR" property="msgflag" />
+    <result column="OPTIONTYPE" jdbcType="VARCHAR" property="optiontype" />
+    <result column="INPUTVALUE" jdbcType="VARCHAR" property="inputvalue" />
+    <result column="OPERUSER" jdbcType="VARCHAR" property="operuser" />
+    <result column="OTHERDATA" jdbcType="VARCHAR" property="otherdata" />
+    <result column="DEFINEDAMT_FLAG" jdbcType="VARCHAR" property="definedamtFlag" />
+    <result column="DEAL_STATUS" jdbcType="VARCHAR" property="dealStatus" />
+    <result column="DEAL_DESC" jdbcType="VARCHAR" property="dealDesc" />
+    <result column="MEMCARDNO" jdbcType="VARCHAR" property="memcardno" />
+    <result column="MEMNAME" jdbcType="VARCHAR" property="memname" />
+    <result column="RECORD_DATE" jdbcType="VARCHAR" property="recordDate" />
+    <result column="RECORD_TIME" jdbcType="VARCHAR" property="recordTime" />
+    <result column="BACKUP1" jdbcType="VARCHAR" property="backup1" />
+    <result column="BACKUP2" jdbcType="VARCHAR" property="backup2" />
+    <result column="BACKUP3" jdbcType="VARCHAR" property="backup3" />
+    <result column="BACKUP4" jdbcType="VARCHAR" property="backup4" />
+    <result column="BACKUP5" jdbcType="VARCHAR" property="backup5" />
+    <result column="BACKUP6" jdbcType="VARCHAR" property="backup6" />
+    <result column="BACKUP7" jdbcType="VARCHAR" property="backup7" />
+    <result column="BACKUP8" jdbcType="VARCHAR" property="backup8" />
+    <result column="BACKUP9" jdbcType="VARCHAR" property="backup9" />
+    <result column="BACKUP10" jdbcType="VARCHAR" property="backup10" />
+    <result column="SETUSER" jdbcType="VARCHAR" property="setuser" />
+    <result column="SETDATE" jdbcType="TIMESTAMP" property="setdate" />
+    <result column="LSTMUSER" jdbcType="VARCHAR" property="lstmuser" />
+    <result column="LSTMDATE" jdbcType="TIMESTAMP" property="lstmdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQ_ID, CORP_ID, FACE_ID, PERSON_ID, CORGNO, TRXSEQNO, MANUFACTURERID, IMEINO, TERMINALNO, 
+    TIMESTAMP, CLIENTTRANSNO, TRXTIME, CLIENTTYPE, DOCTYPE, MERNO, MERORDERNO, MEMACCSECRET, 
+    TOTALAMT, PAYAMT, PAYTYPE, ORDERSRC, DATASRC, INDUSTRY, TRADEMODE, MSGFLAG, OPTIONTYPE, 
+    INPUTVALUE, OPERUSER, OTHERDATA, DEFINEDAMT_FLAG, DEAL_STATUS, DEAL_DESC, MEMCARDNO, 
+    MEMNAME, RECORD_DATE, RECORD_TIME, BACKUP1, BACKUP2, BACKUP3, BACKUP4, BACKUP5, BACKUP6, 
+    BACKUP7, BACKUP8, BACKUP9, BACKUP10, SETUSER, SETDATE, LSTMUSER, LSTMDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bcss_mem_order_info
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bcss_mem_order_info
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderInfoModel">
+    insert into bcss_mem_order_info (SEQ_ID, CORP_ID, FACE_ID, 
+      PERSON_ID, CORGNO, TRXSEQNO, 
+      MANUFACTURERID, IMEINO, TERMINALNO, 
+      TIMESTAMP, CLIENTTRANSNO, TRXTIME, 
+      CLIENTTYPE, DOCTYPE, MERNO, 
+      MERORDERNO, MEMACCSECRET, TOTALAMT, 
+      PAYAMT, PAYTYPE, ORDERSRC, 
+      DATASRC, INDUSTRY, TRADEMODE, 
+      MSGFLAG, OPTIONTYPE, INPUTVALUE, 
+      OPERUSER, OTHERDATA, DEFINEDAMT_FLAG, 
+      DEAL_STATUS, DEAL_DESC, MEMCARDNO, 
+      MEMNAME, RECORD_DATE, RECORD_TIME, 
+      BACKUP1, BACKUP2, BACKUP3,
+      BACKUP4, BACKUP5, BACKUP6, 
+      BACKUP7, BACKUP8, BACKUP9, 
+      BACKUP10, SETUSER, SETDATE, 
+      LSTMUSER, LSTMDATE)
+    values (#{seqId,jdbcType=BIGINT}, #{corpId,jdbcType=CHAR}, #{faceId,jdbcType=VARCHAR}, 
+      #{personId,jdbcType=VARCHAR}, #{corgno,jdbcType=VARCHAR}, #{trxseqno,jdbcType=VARCHAR}, 
+      #{manufacturerid,jdbcType=VARCHAR}, #{imeino,jdbcType=VARCHAR}, #{terminalno,jdbcType=VARCHAR}, 
+      #{timestamp,jdbcType=VARCHAR}, #{clienttransno,jdbcType=VARCHAR}, #{trxtime,jdbcType=TIMESTAMP}, 
+      #{clienttype,jdbcType=VARCHAR}, #{doctype,jdbcType=VARCHAR}, #{merno,jdbcType=VARCHAR}, 
+      #{merorderno,jdbcType=VARCHAR}, #{memaccsecret,jdbcType=VARCHAR}, #{totalamt,jdbcType=DECIMAL}, 
+      #{payamt,jdbcType=DECIMAL}, #{paytype,jdbcType=VARCHAR}, #{ordersrc,jdbcType=VARCHAR}, 
+      #{datasrc,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, #{trademode,jdbcType=VARCHAR}, 
+      #{msgflag,jdbcType=VARCHAR}, #{optiontype,jdbcType=VARCHAR}, #{inputvalue,jdbcType=VARCHAR}, 
+      #{operuser,jdbcType=VARCHAR}, #{otherdata,jdbcType=VARCHAR}, #{definedamtFlag,jdbcType=VARCHAR}, 
+      #{dealStatus,jdbcType=VARCHAR}, #{dealDesc,jdbcType=VARCHAR}, #{memcardno,jdbcType=VARCHAR}, 
+      #{memname,jdbcType=VARCHAR}, #{recordDate,jdbcType=VARCHAR}, #{recordTime,jdbcType=VARCHAR}, 
+      #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR}, 
+      #{backup4,jdbcType=VARCHAR}, #{backup5,jdbcType=VARCHAR}, #{backup6,jdbcType=VARCHAR}, 
+      #{backup7,jdbcType=VARCHAR}, #{backup8,jdbcType=VARCHAR}, #{backup9,jdbcType=VARCHAR}, 
+      #{backup10,jdbcType=VARCHAR}, #{setuser,jdbcType=VARCHAR}, #{setdate,jdbcType=TIMESTAMP}, 
+      #{lstmuser,jdbcType=VARCHAR}, #{lstmdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderInfoModel">
+    insert into bcss_mem_order_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        SEQ_ID,
+      </if>
+      <if test="corpId != null">
+        CORP_ID,
+      </if>
+      <if test="faceId != null">
+        FACE_ID,
+      </if>
+      <if test="personId != null">
+        PERSON_ID,
+      </if>
+      <if test="corgno != null">
+        CORGNO,
+      </if>
+      <if test="trxseqno != null">
+        TRXSEQNO,
+      </if>
+      <if test="manufacturerid != null">
+        MANUFACTURERID,
+      </if>
+      <if test="imeino != null">
+        IMEINO,
+      </if>
+      <if test="terminalno != null">
+        TERMINALNO,
+      </if>
+      <if test="timestamp != null">
+        TIMESTAMP,
+      </if>
+      <if test="clienttransno != null">
+        CLIENTTRANSNO,
+      </if>
+      <if test="trxtime != null">
+        TRXTIME,
+      </if>
+      <if test="clienttype != null">
+        CLIENTTYPE,
+      </if>
+      <if test="doctype != null">
+        DOCTYPE,
+      </if>
+      <if test="merno != null">
+        MERNO,
+      </if>
+      <if test="merorderno != null">
+        MERORDERNO,
+      </if>
+      <if test="memaccsecret != null">
+        MEMACCSECRET,
+      </if>
+      <if test="totalamt != null">
+        TOTALAMT,
+      </if>
+      <if test="payamt != null">
+        PAYAMT,
+      </if>
+      <if test="paytype != null">
+        PAYTYPE,
+      </if>
+      <if test="ordersrc != null">
+        ORDERSRC,
+      </if>
+      <if test="datasrc != null">
+        DATASRC,
+      </if>
+      <if test="industry != null">
+        INDUSTRY,
+      </if>
+      <if test="trademode != null">
+        TRADEMODE,
+      </if>
+      <if test="msgflag != null">
+        MSGFLAG,
+      </if>
+      <if test="optiontype != null">
+        OPTIONTYPE,
+      </if>
+      <if test="inputvalue != null">
+        INPUTVALUE,
+      </if>
+      <if test="operuser != null">
+        OPERUSER,
+      </if>
+      <if test="otherdata != null">
+        OTHERDATA,
+      </if>
+      <if test="definedamtFlag != null">
+        DEFINEDAMT_FLAG,
+      </if>
+      <if test="dealStatus != null">
+        DEAL_STATUS,
+      </if>
+      <if test="dealDesc != null">
+        DEAL_DESC,
+      </if>
+      <if test="memcardno != null">
+        MEMCARDNO,
+      </if>
+      <if test="memname != null">
+        MEMNAME,
+      </if>
+      <if test="recordDate != null">
+        RECORD_DATE,
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME,
+      </if>
+      <if test="backup1 != null">
+        BACKUP1,
+      </if>
+      <if test="backup2 != null">
+        BACKUP2,
+      </if>
+      <if test="backup3 != null">
+        BACKUP3,
+      </if>
+      <if test="backup4 != null">
+        BACKUP4,
+      </if>
+      <if test="backup5 != null">
+        BACKUP5,
+      </if>
+      <if test="backup6 != null">
+        BACKUP6,
+      </if>
+      <if test="backup7 != null">
+        BACKUP7,
+      </if>
+      <if test="backup8 != null">
+        BACKUP8,
+      </if>
+      <if test="backup9 != null">
+        BACKUP9,
+      </if>
+      <if test="backup10 != null">
+        BACKUP10,
+      </if>
+      <if test="setuser != null">
+        SETUSER,
+      </if>
+      <if test="setdate != null">
+        SETDATE,
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER,
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        #{seqId,jdbcType=BIGINT},
+      </if>
+      <if test="corpId != null">
+        #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="faceId != null">
+        #{faceId,jdbcType=VARCHAR},
+      </if>
+      <if test="personId != null">
+        #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="corgno != null">
+        #{corgno,jdbcType=VARCHAR},
+      </if>
+      <if test="trxseqno != null">
+        #{trxseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturerid != null">
+        #{manufacturerid,jdbcType=VARCHAR},
+      </if>
+      <if test="imeino != null">
+        #{imeino,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalno != null">
+        #{terminalno,jdbcType=VARCHAR},
+      </if>
+      <if test="timestamp != null">
+        #{timestamp,jdbcType=VARCHAR},
+      </if>
+      <if test="clienttransno != null">
+        #{clienttransno,jdbcType=VARCHAR},
+      </if>
+      <if test="trxtime != null">
+        #{trxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clienttype != null">
+        #{clienttype,jdbcType=VARCHAR},
+      </if>
+      <if test="doctype != null">
+        #{doctype,jdbcType=VARCHAR},
+      </if>
+      <if test="merno != null">
+        #{merno,jdbcType=VARCHAR},
+      </if>
+      <if test="merorderno != null">
+        #{merorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="memaccsecret != null">
+        #{memaccsecret,jdbcType=VARCHAR},
+      </if>
+      <if test="totalamt != null">
+        #{totalamt,jdbcType=DECIMAL},
+      </if>
+      <if test="payamt != null">
+        #{payamt,jdbcType=DECIMAL},
+      </if>
+      <if test="paytype != null">
+        #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersrc != null">
+        #{ordersrc,jdbcType=VARCHAR},
+      </if>
+      <if test="datasrc != null">
+        #{datasrc,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="trademode != null">
+        #{trademode,jdbcType=VARCHAR},
+      </if>
+      <if test="msgflag != null">
+        #{msgflag,jdbcType=VARCHAR},
+      </if>
+      <if test="optiontype != null">
+        #{optiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="inputvalue != null">
+        #{inputvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="operuser != null">
+        #{operuser,jdbcType=VARCHAR},
+      </if>
+      <if test="otherdata != null">
+        #{otherdata,jdbcType=VARCHAR},
+      </if>
+      <if test="definedamtFlag != null">
+        #{definedamtFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="dealStatus != null">
+        #{dealStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dealDesc != null">
+        #{dealDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="memcardno != null">
+        #{memcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="memname != null">
+        #{memname,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDate != null">
+        #{recordDate,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="backup5 != null">
+        #{backup5,jdbcType=VARCHAR},
+      </if>
+      <if test="backup6 != null">
+        #{backup6,jdbcType=VARCHAR},
+      </if>
+      <if test="backup7 != null">
+        #{backup7,jdbcType=VARCHAR},
+      </if>
+      <if test="backup8 != null">
+        #{backup8,jdbcType=VARCHAR},
+      </if>
+      <if test="backup9 != null">
+        #{backup9,jdbcType=VARCHAR},
+      </if>
+      <if test="backup10 != null">
+        #{backup10,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderInfoModel">
+    update bcss_mem_order_info
+    <set>
+      <if test="corpId != null">
+        CORP_ID = #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="faceId != null">
+        FACE_ID = #{faceId,jdbcType=VARCHAR},
+      </if>
+      <if test="personId != null">
+        PERSON_ID = #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="corgno != null">
+        CORGNO = #{corgno,jdbcType=VARCHAR},
+      </if>
+      <if test="trxseqno != null">
+        TRXSEQNO = #{trxseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturerid != null">
+        MANUFACTURERID = #{manufacturerid,jdbcType=VARCHAR},
+      </if>
+      <if test="imeino != null">
+        IMEINO = #{imeino,jdbcType=VARCHAR},
+      </if>
+      <if test="terminalno != null">
+        TERMINALNO = #{terminalno,jdbcType=VARCHAR},
+      </if>
+      <if test="timestamp != null">
+        TIMESTAMP = #{timestamp,jdbcType=VARCHAR},
+      </if>
+      <if test="clienttransno != null">
+        CLIENTTRANSNO = #{clienttransno,jdbcType=VARCHAR},
+      </if>
+      <if test="trxtime != null">
+        TRXTIME = #{trxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clienttype != null">
+        CLIENTTYPE = #{clienttype,jdbcType=VARCHAR},
+      </if>
+      <if test="doctype != null">
+        DOCTYPE = #{doctype,jdbcType=VARCHAR},
+      </if>
+      <if test="merno != null">
+        MERNO = #{merno,jdbcType=VARCHAR},
+      </if>
+      <if test="merorderno != null">
+        MERORDERNO = #{merorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="memaccsecret != null">
+        MEMACCSECRET = #{memaccsecret,jdbcType=VARCHAR},
+      </if>
+      <if test="totalamt != null">
+        TOTALAMT = #{totalamt,jdbcType=DECIMAL},
+      </if>
+      <if test="payamt != null">
+        PAYAMT = #{payamt,jdbcType=DECIMAL},
+      </if>
+      <if test="paytype != null">
+        PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      </if>
+      <if test="ordersrc != null">
+        ORDERSRC = #{ordersrc,jdbcType=VARCHAR},
+      </if>
+      <if test="datasrc != null">
+        DATASRC = #{datasrc,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        INDUSTRY = #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="trademode != null">
+        TRADEMODE = #{trademode,jdbcType=VARCHAR},
+      </if>
+      <if test="msgflag != null">
+        MSGFLAG = #{msgflag,jdbcType=VARCHAR},
+      </if>
+      <if test="optiontype != null">
+        OPTIONTYPE = #{optiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="inputvalue != null">
+        INPUTVALUE = #{inputvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="operuser != null">
+        OPERUSER = #{operuser,jdbcType=VARCHAR},
+      </if>
+      <if test="otherdata != null">
+        OTHERDATA = #{otherdata,jdbcType=VARCHAR},
+      </if>
+      <if test="definedamtFlag != null">
+        DEFINEDAMT_FLAG = #{definedamtFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="dealStatus != null">
+        DEAL_STATUS = #{dealStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="dealDesc != null">
+        DEAL_DESC = #{dealDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="memcardno != null">
+        MEMCARDNO = #{memcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="memname != null">
+        MEMNAME = #{memname,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDate != null">
+        RECORD_DATE = #{recordDate,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME = #{recordTime,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="backup5 != null">
+        BACKUP5 = #{backup5,jdbcType=VARCHAR},
+      </if>
+      <if test="backup6 != null">
+        BACKUP6 = #{backup6,jdbcType=VARCHAR},
+      </if>
+      <if test="backup7 != null">
+        BACKUP7 = #{backup7,jdbcType=VARCHAR},
+      </if>
+      <if test="backup8 != null">
+        BACKUP8 = #{backup8,jdbcType=VARCHAR},
+      </if>
+      <if test="backup9 != null">
+        BACKUP9 = #{backup9,jdbcType=VARCHAR},
+      </if>
+      <if test="backup10 != null">
+        BACKUP10 = #{backup10,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        SETUSER = #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderInfoModel">
+    update bcss_mem_order_info
+    set CORP_ID = #{corpId,jdbcType=CHAR},
+      FACE_ID = #{faceId,jdbcType=VARCHAR},
+      PERSON_ID = #{personId,jdbcType=VARCHAR},
+      CORGNO = #{corgno,jdbcType=VARCHAR},
+      TRXSEQNO = #{trxseqno,jdbcType=VARCHAR},
+      MANUFACTURERID = #{manufacturerid,jdbcType=VARCHAR},
+      IMEINO = #{imeino,jdbcType=VARCHAR},
+      TERMINALNO = #{terminalno,jdbcType=VARCHAR},
+      TIMESTAMP = #{timestamp,jdbcType=VARCHAR},
+      CLIENTTRANSNO = #{clienttransno,jdbcType=VARCHAR},
+      TRXTIME = #{trxtime,jdbcType=TIMESTAMP},
+      CLIENTTYPE = #{clienttype,jdbcType=VARCHAR},
+      DOCTYPE = #{doctype,jdbcType=VARCHAR},
+      MERNO = #{merno,jdbcType=VARCHAR},
+      MERORDERNO = #{merorderno,jdbcType=VARCHAR},
+      MEMACCSECRET = #{memaccsecret,jdbcType=VARCHAR},
+      TOTALAMT = #{totalamt,jdbcType=DECIMAL},
+      PAYAMT = #{payamt,jdbcType=DECIMAL},
+      PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      ORDERSRC = #{ordersrc,jdbcType=VARCHAR},
+      DATASRC = #{datasrc,jdbcType=VARCHAR},
+      INDUSTRY = #{industry,jdbcType=VARCHAR},
+      TRADEMODE = #{trademode,jdbcType=VARCHAR},
+      MSGFLAG = #{msgflag,jdbcType=VARCHAR},
+      OPTIONTYPE = #{optiontype,jdbcType=VARCHAR},
+      INPUTVALUE = #{inputvalue,jdbcType=VARCHAR},
+      OPERUSER = #{operuser,jdbcType=VARCHAR},
+      OTHERDATA = #{otherdata,jdbcType=VARCHAR},
+      DEFINEDAMT_FLAG = #{definedamtFlag,jdbcType=VARCHAR},
+      DEAL_STATUS = #{dealStatus,jdbcType=VARCHAR},
+      DEAL_DESC = #{dealDesc,jdbcType=VARCHAR},
+      MEMCARDNO = #{memcardno,jdbcType=VARCHAR},
+      MEMNAME = #{memname,jdbcType=VARCHAR},
+      RECORD_DATE = #{recordDate,jdbcType=VARCHAR},
+      RECORD_TIME = #{recordTime,jdbcType=VARCHAR},
+      BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      BACKUP5 = #{backup5,jdbcType=VARCHAR},
+      BACKUP6 = #{backup6,jdbcType=VARCHAR},
+      BACKUP7 = #{backup7,jdbcType=VARCHAR},
+      BACKUP8 = #{backup8,jdbcType=VARCHAR},
+      BACKUP9 = #{backup9,jdbcType=VARCHAR},
+      BACKUP10 = #{backup10,jdbcType=VARCHAR},
+      SETUSER = #{setuser,jdbcType=VARCHAR},
+      SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP}
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+
+
+  <!--  -->
+  <select id="selectByCorpId2Trxseqno"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_order_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and TRXSEQNO = #{trxseqno,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByCorpId2MerOrderNo"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_order_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and MERORDERNO = #{merorderno,jdbcType=VARCHAR}
+  </select>
+
+  <!--ORDER BY SEQ_ID-->
+  <select id="selectByCorpId2Trxtime2DealStatus"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_order_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and TRXTIME &gt;=  #{trxtimeStart,jdbcType=TIMESTAMP}
+    and TRXTIME &lt;=  #{trxtimeEnd,jdbcType=TIMESTAMP}
+    and DEAL_STATUS = #{dealStatus,jdbcType=VARCHAR}
+    ORDER BY SEQ_ID
+    LIMIT
+    #{startNum,jdbcType=DECIMAL},#{endNum,jdbcType=DECIMAL}
+  </select>
+
+  <select id="selectByCorpId2Trxtime2DealStatusCount" resultType="java.lang.Integer" >
+    select count(*)
+    from bcss_mem_order_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and TRXTIME &gt;=  #{trxtimeStart,jdbcType=TIMESTAMP}
+    and TRXTIME &lt;=  #{trxtimeEnd,jdbcType=TIMESTAMP}
+    and DEAL_STATUS = #{dealStatus,jdbcType=VARCHAR}
+  </select>
+
+
+  <delete id="deleteByCorpId2Trxseqno" >
+    delete from bcss_mem_order_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and TRXSEQNO = #{trxseqno,jdbcType=VARCHAR}
+  </delete>
+</mapper>

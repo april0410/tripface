@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icbc.bcss.member.face.operationtools.dao.BcssMemCloudwalkPersonRegisterFeatureDetailDao">
+  <resultMap id="BaseResultMap" type="com.icbc.bcss.member.face.operationtools.model.BcssMemCloudwalkPersonRegisterFeatureDetailModel">
+    <id column="SEQ_ID" jdbcType="BIGINT" property="seqId" />
+    <result column="CORP_ID" jdbcType="CHAR" property="corpId" />
+    <result column="FACE_ID" jdbcType="VARCHAR" property="faceId" />
+    <result column="FLOWNUM" jdbcType="VARCHAR" property="flownum" />
+    <result column="SERVER_REGISTER_INFO_CODE" jdbcType="VARCHAR" property="serverRegisterInfoCode" />
+    <result column="PERSON_FEATURE_TYPE" jdbcType="VARCHAR" property="personFeatureType" />
+    <result column="PERSON_FEATURE_SUB_TYPE" jdbcType="VARCHAR" property="personFeatureSubType" />
+    <result column="PERSON_FEATURE_ID" jdbcType="VARCHAR" property="personFeatureId" />
+    <result column="PERSON_FEATURE_SAVE_PATH" jdbcType="VARCHAR" property="personFeatureSavePath" />
+    <result column="BACKUP1" jdbcType="VARCHAR" property="backup1" />
+    <result column="BACKUP2" jdbcType="VARCHAR" property="backup2" />
+    <result column="BACKUP3" jdbcType="VARCHAR" property="backup3" />
+    <result column="BACKUP4" jdbcType="VARCHAR" property="backup4" />
+    <result column="SETUSER" jdbcType="VARCHAR" property="setuser" />
+    <result column="SETDATE" jdbcType="TIMESTAMP" property="setdate" />
+    <result column="LSTMUSER" jdbcType="VARCHAR" property="lstmuser" />
+    <result column="LSTMDATE" jdbcType="TIMESTAMP" property="lstmdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQ_ID, CORP_ID, FACE_ID, FLOWNUM, SERVER_REGISTER_INFO_CODE, PERSON_FEATURE_TYPE, 
+    PERSON_FEATURE_SUB_TYPE, PERSON_FEATURE_ID, PERSON_FEATURE_SAVE_PATH, BACKUP1, BACKUP2, 
+    BACKUP3, BACKUP4, SETUSER, SETDATE, LSTMUSER, LSTMDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bcss_mem_cloudwalk_person_register_feature_detail
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bcss_mem_cloudwalk_person_register_feature_detail
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCloudwalkPersonRegisterFeatureDetailModel">
+    insert into bcss_mem_cloudwalk_person_register_feature_detail (SEQ_ID, CORP_ID, FACE_ID, 
+      FLOWNUM, SERVER_REGISTER_INFO_CODE, PERSON_FEATURE_TYPE, 
+      PERSON_FEATURE_SUB_TYPE, PERSON_FEATURE_ID, 
+      PERSON_FEATURE_SAVE_PATH, BACKUP1, BACKUP2, 
+      BACKUP3, BACKUP4, SETUSER, 
+      SETDATE, LSTMUSER, LSTMDATE
+      )
+    values (#{seqId,jdbcType=BIGINT}, #{corpId,jdbcType=CHAR}, #{faceId,jdbcType=VARCHAR}, 
+      #{flownum,jdbcType=VARCHAR}, #{serverRegisterInfoCode,jdbcType=VARCHAR}, #{personFeatureType,jdbcType=VARCHAR}, 
+      #{personFeatureSubType,jdbcType=VARCHAR}, #{personFeatureId,jdbcType=VARCHAR}, 
+      #{personFeatureSavePath,jdbcType=VARCHAR}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
+      #{backup3,jdbcType=VARCHAR}, #{backup4,jdbcType=VARCHAR}, #{setuser,jdbcType=VARCHAR}, 
+      #{setdate,jdbcType=TIMESTAMP}, #{lstmuser,jdbcType=VARCHAR}, #{lstmdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCloudwalkPersonRegisterFeatureDetailModel">
+    insert into bcss_mem_cloudwalk_person_register_feature_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        SEQ_ID,
+      </if>
+      <if test="corpId != null">
+        CORP_ID,
+      </if>
+      <if test="faceId != null">
+        FACE_ID,
+      </if>
+      <if test="flownum != null">
+        FLOWNUM,
+      </if>
+      <if test="serverRegisterInfoCode != null">
+        SERVER_REGISTER_INFO_CODE,
+      </if>
+      <if test="personFeatureType != null">
+        PERSON_FEATURE_TYPE,
+      </if>
+      <if test="personFeatureSubType != null">
+        PERSON_FEATURE_SUB_TYPE,
+      </if>
+      <if test="personFeatureId != null">
+        PERSON_FEATURE_ID,
+      </if>
+      <if test="personFeatureSavePath != null">
+        PERSON_FEATURE_SAVE_PATH,
+      </if>
+      <if test="backup1 != null">
+        BACKUP1,
+      </if>
+      <if test="backup2 != null">
+        BACKUP2,
+      </if>
+      <if test="backup3 != null">
+        BACKUP3,
+      </if>
+      <if test="backup4 != null">
+        BACKUP4,
+      </if>
+      <if test="setuser != null">
+        SETUSER,
+      </if>
+      <if test="setdate != null">
+        SETDATE,
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER,
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        #{seqId,jdbcType=BIGINT},
+      </if>
+      <if test="corpId != null">
+        #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="faceId != null">
+        #{faceId,jdbcType=VARCHAR},
+      </if>
+      <if test="flownum != null">
+        #{flownum,jdbcType=VARCHAR},
+      </if>
+      <if test="serverRegisterInfoCode != null">
+        #{serverRegisterInfoCode,jdbcType=VARCHAR},
+      </if>
+      <if test="personFeatureType != null">
+        #{personFeatureType,jdbcType=VARCHAR},
+      </if>
+      <if test="personFeatureSubType != null">
+        #{personFeatureSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="personFeatureId != null">
+        #{personFeatureId,jdbcType=VARCHAR},
+      </if>
+      <if test="personFeatureSavePath != null">
+        #{personFeatureSavePath,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCloudwalkPersonRegisterFeatureDetailModel">
+    update bcss_mem_cloudwalk_person_register_feature_detail
+    <set>
+      <if test="corpId != null">
+        CORP_ID = #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="faceId != null">
+        FACE_ID = #{faceId,jdbcType=VARCHAR},
+      </if>
+      <if test="flownum != null">
+        FLOWNUM = #{flownum,jdbcType=VARCHAR},
+      </if>
+      <if test="serverRegisterInfoCode != null">
+        SERVER_REGISTER_INFO_CODE = #{serverRegisterInfoCode,jdbcType=VARCHAR},
+      </if>
+      <if test="personFeatureType != null">
+        PERSON_FEATURE_TYPE = #{personFeatureType,jdbcType=VARCHAR},
+      </if>
+      <if test="personFeatureSubType != null">
+        PERSON_FEATURE_SUB_TYPE = #{personFeatureSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="personFeatureId != null">
+        PERSON_FEATURE_ID = #{personFeatureId,jdbcType=VARCHAR},
+      </if>
+      <if test="personFeatureSavePath != null">
+        PERSON_FEATURE_SAVE_PATH = #{personFeatureSavePath,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        SETUSER = #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCloudwalkPersonRegisterFeatureDetailModel">
+    update bcss_mem_cloudwalk_person_register_feature_detail
+    set CORP_ID = #{corpId,jdbcType=CHAR},
+      FACE_ID = #{faceId,jdbcType=VARCHAR},
+      FLOWNUM = #{flownum,jdbcType=VARCHAR},
+      SERVER_REGISTER_INFO_CODE = #{serverRegisterInfoCode,jdbcType=VARCHAR},
+      PERSON_FEATURE_TYPE = #{personFeatureType,jdbcType=VARCHAR},
+      PERSON_FEATURE_SUB_TYPE = #{personFeatureSubType,jdbcType=VARCHAR},
+      PERSON_FEATURE_ID = #{personFeatureId,jdbcType=VARCHAR},
+      PERSON_FEATURE_SAVE_PATH = #{personFeatureSavePath,jdbcType=VARCHAR},
+      BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      SETUSER = #{setuser,jdbcType=VARCHAR},
+      SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP}
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByCorpID2FaceID"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_cloudwalk_person_register_feature_detail
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and FACE_ID = #{faceId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByCorpID2FaceID2PersonFeatureType"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_cloudwalk_person_register_feature_detail
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and FACE_ID = #{faceId,jdbcType=VARCHAR}
+    and PERSON_FEATURE_TYPE = #{personFeatureType,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByCorpId2FaceId" >
+    delete from bcss_mem_cloudwalk_person_register_feature_detail
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and FACE_ID = #{faceId,jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteByCorpId2FaceId2Type" >
+    delete from bcss_mem_cloudwalk_person_register_feature_detail
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and FACE_ID = #{faceId,jdbcType=VARCHAR}
+        and PERSON_FEATURE_TYPE = #{personFeatureType,jdbcType=VARCHAR}
+  </delete>
+
+</mapper>

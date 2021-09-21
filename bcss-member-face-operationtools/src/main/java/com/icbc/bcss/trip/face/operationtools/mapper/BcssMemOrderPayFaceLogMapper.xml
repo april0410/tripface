@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icbc.bcss.member.face.operationtools.dao.BcssMemOrderPayFaceLogDao">
+  <resultMap id="BaseResultMap" type="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderPayFaceLogModel">
+    <id column="SEQ_ID" jdbcType="BIGINT" property="seqId" />
+    <result column="CORP_ID" jdbcType="CHAR" property="corpId" />
+    <result column="FACE_ID" jdbcType="VARCHAR" property="faceId" />
+    <result column="PERSON_ID" jdbcType="VARCHAR" property="personId" />
+    <result column="CORGNO" jdbcType="VARCHAR" property="corgno" />
+    <result column="TRXSEQNO" jdbcType="VARCHAR" property="trxseqno" />
+    <result column="FEATURETYPE" jdbcType="VARCHAR" property="featuretype" />
+    <result column="FEATURENO" jdbcType="VARCHAR" property="featureno" />
+    <result column="FEATURECORGNO" jdbcType="VARCHAR" property="featurecorgno" />
+    <result column="FACE_SIM" jdbcType="VARCHAR" property="faceSim" />
+    <result column="FACT_FACE_SIM" jdbcType="VARCHAR" property="factFaceSim" />
+    <result column="RECORD_DATE" jdbcType="VARCHAR" property="recordDate" />
+    <result column="RECORD_TIME" jdbcType="VARCHAR" property="recordTime" />
+    <result column="BACKUP1" jdbcType="VARCHAR" property="backup1" />
+    <result column="BACKUP2" jdbcType="VARCHAR" property="backup2" />
+    <result column="BACKUP3" jdbcType="VARCHAR" property="backup3" />
+    <result column="BACKUP4" jdbcType="VARCHAR" property="backup4" />
+    <result column="SETUSER" jdbcType="VARCHAR" property="setuser" />
+    <result column="SETDATE" jdbcType="TIMESTAMP" property="setdate" />
+    <result column="LSTMUSER" jdbcType="VARCHAR" property="lstmuser" />
+    <result column="LSTMDATE" jdbcType="TIMESTAMP" property="lstmdate" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderPayFaceLogModel">
+    <result column="FEATURE" jdbcType="LONGVARCHAR" property="feature" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQ_ID, CORP_ID, FACE_ID, PERSON_ID, CORGNO, TRXSEQNO, FEATURETYPE, FEATURENO, FEATURECORGNO, 
+    FACE_SIM, FACT_FACE_SIM, RECORD_DATE, RECORD_TIME, BACKUP1, BACKUP2, BACKUP3, BACKUP4, 
+    SETUSER, SETDATE, LSTMUSER, LSTMDATE
+  </sql>
+  <sql id="Blob_Column_List">
+    FEATURE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bcss_mem_order_pay_face_log
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bcss_mem_order_pay_face_log
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderPayFaceLogModel">
+    insert into bcss_mem_order_pay_face_log (SEQ_ID, CORP_ID, FACE_ID, 
+      PERSON_ID, CORGNO, TRXSEQNO, 
+      FEATURETYPE, FEATURENO, FEATURECORGNO, 
+      FACE_SIM, FACT_FACE_SIM, RECORD_DATE, 
+      RECORD_TIME, BACKUP1, BACKUP2, 
+      BACKUP3, BACKUP4, SETUSER, 
+      SETDATE, LSTMUSER, LSTMDATE, 
+      FEATURE)
+    values (#{seqId,jdbcType=BIGINT}, #{corpId,jdbcType=CHAR}, #{faceId,jdbcType=VARCHAR}, 
+      #{personId,jdbcType=VARCHAR}, #{corgno,jdbcType=VARCHAR}, #{trxseqno,jdbcType=VARCHAR}, 
+      #{featuretype,jdbcType=VARCHAR}, #{featureno,jdbcType=VARCHAR}, #{featurecorgno,jdbcType=VARCHAR}, 
+      #{faceSim,jdbcType=VARCHAR}, #{factFaceSim,jdbcType=VARCHAR}, #{recordDate,jdbcType=VARCHAR}, 
+      #{recordTime,jdbcType=VARCHAR}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
+      #{backup3,jdbcType=VARCHAR}, #{backup4,jdbcType=VARCHAR}, #{setuser,jdbcType=VARCHAR}, 
+      #{setdate,jdbcType=TIMESTAMP}, #{lstmuser,jdbcType=VARCHAR}, #{lstmdate,jdbcType=TIMESTAMP}, 
+      #{feature,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderPayFaceLogModel">
+    insert into bcss_mem_order_pay_face_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        SEQ_ID,
+      </if>
+      <if test="corpId != null">
+        CORP_ID,
+      </if>
+      <if test="faceId != null">
+        FACE_ID,
+      </if>
+      <if test="personId != null">
+        PERSON_ID,
+      </if>
+      <if test="corgno != null">
+        CORGNO,
+      </if>
+      <if test="trxseqno != null">
+        TRXSEQNO,
+      </if>
+      <if test="featuretype != null">
+        FEATURETYPE,
+      </if>
+      <if test="featureno != null">
+        FEATURENO,
+      </if>
+      <if test="featurecorgno != null">
+        FEATURECORGNO,
+      </if>
+      <if test="faceSim != null">
+        FACE_SIM,
+      </if>
+      <if test="factFaceSim != null">
+        FACT_FACE_SIM,
+      </if>
+      <if test="recordDate != null">
+        RECORD_DATE,
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME,
+      </if>
+      <if test="backup1 != null">
+        BACKUP1,
+      </if>
+      <if test="backup2 != null">
+        BACKUP2,
+      </if>
+      <if test="backup3 != null">
+        BACKUP3,
+      </if>
+      <if test="backup4 != null">
+        BACKUP4,
+      </if>
+      <if test="setuser != null">
+        SETUSER,
+      </if>
+      <if test="setdate != null">
+        SETDATE,
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER,
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE,
+      </if>
+      <if test="feature != null">
+        FEATURE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        #{seqId,jdbcType=BIGINT},
+      </if>
+      <if test="corpId != null">
+        #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="faceId != null">
+        #{faceId,jdbcType=VARCHAR},
+      </if>
+      <if test="personId != null">
+        #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="corgno != null">
+        #{corgno,jdbcType=VARCHAR},
+      </if>
+      <if test="trxseqno != null">
+        #{trxseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="featuretype != null">
+        #{featuretype,jdbcType=VARCHAR},
+      </if>
+      <if test="featureno != null">
+        #{featureno,jdbcType=VARCHAR},
+      </if>
+      <if test="featurecorgno != null">
+        #{featurecorgno,jdbcType=VARCHAR},
+      </if>
+      <if test="faceSim != null">
+        #{faceSim,jdbcType=VARCHAR},
+      </if>
+      <if test="factFaceSim != null">
+        #{factFaceSim,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDate != null">
+        #{recordDate,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feature != null">
+        #{feature,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderPayFaceLogModel">
+    update bcss_mem_order_pay_face_log
+    <set>
+      <if test="corpId != null">
+        CORP_ID = #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="faceId != null">
+        FACE_ID = #{faceId,jdbcType=VARCHAR},
+      </if>
+      <if test="personId != null">
+        PERSON_ID = #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="corgno != null">
+        CORGNO = #{corgno,jdbcType=VARCHAR},
+      </if>
+      <if test="trxseqno != null">
+        TRXSEQNO = #{trxseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="featuretype != null">
+        FEATURETYPE = #{featuretype,jdbcType=VARCHAR},
+      </if>
+      <if test="featureno != null">
+        FEATURENO = #{featureno,jdbcType=VARCHAR},
+      </if>
+      <if test="featurecorgno != null">
+        FEATURECORGNO = #{featurecorgno,jdbcType=VARCHAR},
+      </if>
+      <if test="faceSim != null">
+        FACE_SIM = #{faceSim,jdbcType=VARCHAR},
+      </if>
+      <if test="factFaceSim != null">
+        FACT_FACE_SIM = #{factFaceSim,jdbcType=VARCHAR},
+      </if>
+      <if test="recordDate != null">
+        RECORD_DATE = #{recordDate,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        RECORD_TIME = #{recordTime,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        SETUSER = #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="feature != null">
+        FEATURE = #{feature,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderPayFaceLogModel">
+    update bcss_mem_order_pay_face_log
+    set CORP_ID = #{corpId,jdbcType=CHAR},
+      FACE_ID = #{faceId,jdbcType=VARCHAR},
+      PERSON_ID = #{personId,jdbcType=VARCHAR},
+      CORGNO = #{corgno,jdbcType=VARCHAR},
+      TRXSEQNO = #{trxseqno,jdbcType=VARCHAR},
+      FEATURETYPE = #{featuretype,jdbcType=VARCHAR},
+      FEATURENO = #{featureno,jdbcType=VARCHAR},
+      FEATURECORGNO = #{featurecorgno,jdbcType=VARCHAR},
+      FACE_SIM = #{faceSim,jdbcType=VARCHAR},
+      FACT_FACE_SIM = #{factFaceSim,jdbcType=VARCHAR},
+      RECORD_DATE = #{recordDate,jdbcType=VARCHAR},
+      RECORD_TIME = #{recordTime,jdbcType=VARCHAR},
+      BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      SETUSER = #{setuser,jdbcType=VARCHAR},
+      SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP},
+      FEATURE = #{feature,jdbcType=LONGVARCHAR}
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderPayFaceLogModel">
+    update bcss_mem_order_pay_face_log
+    set CORP_ID = #{corpId,jdbcType=CHAR},
+      FACE_ID = #{faceId,jdbcType=VARCHAR},
+      PERSON_ID = #{personId,jdbcType=VARCHAR},
+      CORGNO = #{corgno,jdbcType=VARCHAR},
+      TRXSEQNO = #{trxseqno,jdbcType=VARCHAR},
+      FEATURETYPE = #{featuretype,jdbcType=VARCHAR},
+      FEATURENO = #{featureno,jdbcType=VARCHAR},
+      FEATURECORGNO = #{featurecorgno,jdbcType=VARCHAR},
+      FACE_SIM = #{faceSim,jdbcType=VARCHAR},
+      FACT_FACE_SIM = #{factFaceSim,jdbcType=VARCHAR},
+      RECORD_DATE = #{recordDate,jdbcType=VARCHAR},
+      RECORD_TIME = #{recordTime,jdbcType=VARCHAR},
+      BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      SETUSER = #{setuser,jdbcType=VARCHAR},
+      SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP}
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+
+
+  <!---->
+  <select id="selectByCorpId2Trxseqno"  resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bcss_mem_order_pay_face_log
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and TRXSEQNO = #{trxseqno,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByCorpId2Trxseqno" >
+    delete from bcss_mem_order_pay_face_log
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and TRXSEQNO = #{trxseqno,jdbcType=VARCHAR}
+  </delete>
+
+  <select id="selectByCorpId2FeatureType2RecordDate"  resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bcss_mem_order_pay_face_log
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and FEATURETYPE = #{featuretype,jdbcType=VARCHAR}
+    and  RECORD_DATE = #{recordDate,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

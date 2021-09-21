@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--<classPathEntry location="mysql-connector-java-5.1.46.jar" />-->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/bcssmemberoffline"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.icbc.bcss.member.face.operationtools.task" targetProject="src/main/java">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.icbc.bcss.member.face.operationtools.task"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.icbc.bcss.member.face.operationtools.task"  targetProject="src/main/java">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+<!--        -->
+<!--        <table schema="bcssmemberoffline" tableName="bcss_mem_cloudwalk_group_person_bind_info" domainObjectName="BcssMemCloudwalkGroupPersonBindInfo"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+
+<!--            &lt;!&ndash;-->
+<!--            <property name="useActualColumnNames" value="true"/>-->
+<!--            <generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
+<!--            <columnOverride column="DATE_FIELD" property="startDate" />-->
+<!--            <ignoreColumn column="FRED" />-->
+<!--            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
+<!--            &ndash;&gt;-->
+<!--        </table>-->
+
+<!--        <table schema="bcssmemberoffline" tableName="bcss_mem_cloudwalk_group_info" domainObjectName="BcssMemCloudwalkGroupInfo"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--        </table>-->
+
+<!--        <table schema="bcssmemberoffline" tableName="bcss_mem_cloudwalk_person_register_feature_detail" domainObjectName="BcssMemCloudwalkPersonRegisterFeatureDetail"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--        </table>-->
+
+<!--        <table schema="bcssmemberoffline" tableName="bcss_mem_cloudwalk_person_register_info" domainObjectName="BcssMemCloudwalkPersonRegisterInfo"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--        </table>-->
+
+
+        <table schema="bcssmemberoffline" tableName="bcss_mem_record_info_log" domainObjectName="BcssMemRecordInfoLog"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+
+<!--        <table schema="bcssmemberoffline" tableName="bcss_mem_order_coupon_info" domainObjectName="BcssMemOrdercouponInfo"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--        </table>-->
+
+<!--        <table schema="bcssmemberoffline" tableName="bcss_mem_order_info" domainObjectName="BcssMemOrderInfo"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--        </table>-->
+
+<!--        <table schema="bcssmemberoffline" tableName="bcss_mem_order_pay_face_log" domainObjectName="BcssMemOrderPayFaceLog"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--        </table>-->
+
+<!--        <table schema="bcssmemberoffline" tableName="bcss_mem_order_prod_info" domainObjectName="BcssMemOrderProdInfo"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+<!--        </table>-->
+
+<!--        <table schema="bcsszoneoffline" tableName="bcss_zone_access_control" domainObjectName="BcssZoneAccessControlModel"-->
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--               enableDeleteByExample="false" enableSelectByExample="false"-->
+<!--               selectByExampleQueryId="false">-->
+
+<!--        </table>-->
+<!--        -->
+    </context>
+</generatorConfiguration>

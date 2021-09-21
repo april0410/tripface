@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icbc.bcss.member.face.operationtools.dao.BcssMemCloudwalkPersonRegisterInfoDao">
+  <resultMap id="BaseResultMap" type="com.icbc.bcss.member.face.operationtools.model.BcssMemCloudwalkPersonRegisterInfoModel">
+    <id column="SEQ_ID" jdbcType="BIGINT" property="seqId" />
+    <result column="CORP_ID" jdbcType="CHAR" property="corpId" />
+    <result column="FACE_ID" jdbcType="VARCHAR" property="faceId" />
+    <result column="APPLICATION_ID" jdbcType="VARCHAR" property="applicationId" />
+    <result column="BUSINESS_ID" jdbcType="VARCHAR" property="businessId" />
+    <result column="FLOWNUM" jdbcType="VARCHAR" property="flownum" />
+    <result column="SERVER_REGISTER_INFO_CODE" jdbcType="VARCHAR" property="serverRegisterInfoCode" />
+    <result column="CHANNEL_CODE" jdbcType="VARCHAR" property="channelCode" />
+    <result column="SERVICE_MODEL_VERSION" jdbcType="VARCHAR" property="serviceModelVersion" />
+    <result column="ORGCODE" jdbcType="VARCHAR" property="orgcode" />
+    <result column="PEOPLETYPE" jdbcType="VARCHAR" property="peopletype" />
+    <result column="VIPLEVEL" jdbcType="VARCHAR" property="viplevel" />
+    <result column="CERTTYPE" jdbcType="VARCHAR" property="certtype" />
+    <result column="CERTNO" jdbcType="VARCHAR" property="certno" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
+    <result column="DUTY" jdbcType="VARCHAR" property="duty" />
+    <result column="POSITION" jdbcType="VARCHAR" property="position" />
+    <result column="TELEPHONE" jdbcType="VARCHAR" property="telephone" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="PROVINCE" jdbcType="VARCHAR" property="province" />
+    <result column="CITY" jdbcType="VARCHAR" property="city" />
+    <result column="AREA" jdbcType="VARCHAR" property="area" />
+    <result column="BACKUP1" jdbcType="VARCHAR" property="backup1" />
+    <result column="BACKUP2" jdbcType="VARCHAR" property="backup2" />
+    <result column="BACKUP3" jdbcType="VARCHAR" property="backup3" />
+    <result column="BACKUP4" jdbcType="VARCHAR" property="backup4" />
+    <result column="SETUSER" jdbcType="VARCHAR" property="setuser" />
+    <result column="SETDATE" jdbcType="TIMESTAMP" property="setdate" />
+    <result column="LSTMUSER" jdbcType="VARCHAR" property="lstmuser" />
+    <result column="LSTMDATE" jdbcType="TIMESTAMP" property="lstmdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQ_ID, CORP_ID, FACE_ID, APPLICATION_ID, BUSINESS_ID, FLOWNUM, SERVER_REGISTER_INFO_CODE, 
+    CHANNEL_CODE, SERVICE_MODEL_VERSION, ORGCODE, PEOPLETYPE, VIPLEVEL, CERTTYPE, CERTNO, 
+    NAME, SEX, BIRTHDAY, DUTY, POSITION, TELEPHONE, EMAIL, ADDRESS, REMARK, PROVINCE, 
+    CITY, AREA, BACKUP1, BACKUP2, BACKUP3, BACKUP4, SETUSER, SETDATE, LSTMUSER, LSTMDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bcss_mem_cloudwalk_person_register_info
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bcss_mem_cloudwalk_person_register_info
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCloudwalkPersonRegisterInfoModel">
+    insert into bcss_mem_cloudwalk_person_register_info (SEQ_ID, CORP_ID, FACE_ID, 
+      APPLICATION_ID, BUSINESS_ID, FLOWNUM, 
+      SERVER_REGISTER_INFO_CODE, CHANNEL_CODE, SERVICE_MODEL_VERSION, 
+      ORGCODE, PEOPLETYPE, VIPLEVEL, 
+      CERTTYPE, CERTNO, NAME, 
+      SEX, BIRTHDAY, DUTY, 
+      POSITION, TELEPHONE, EMAIL, 
+      ADDRESS, REMARK, PROVINCE, 
+      CITY, AREA, BACKUP1, 
+      BACKUP2, BACKUP3, BACKUP4, 
+      SETUSER, SETDATE, LSTMUSER, 
+      LSTMDATE)
+    values (#{seqId,jdbcType=BIGINT}, #{corpId,jdbcType=CHAR}, #{faceId,jdbcType=VARCHAR}, 
+      #{applicationId,jdbcType=VARCHAR}, #{businessId,jdbcType=VARCHAR}, #{flownum,jdbcType=VARCHAR}, 
+      #{serverRegisterInfoCode,jdbcType=VARCHAR}, #{channelCode,jdbcType=VARCHAR}, #{serviceModelVersion,jdbcType=VARCHAR}, 
+      #{orgcode,jdbcType=VARCHAR}, #{peopletype,jdbcType=VARCHAR}, #{viplevel,jdbcType=VARCHAR}, 
+      #{certtype,jdbcType=VARCHAR}, #{certno,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{duty,jdbcType=VARCHAR}, 
+      #{position,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{backup1,jdbcType=VARCHAR}, 
+      #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR}, #{backup4,jdbcType=VARCHAR}, 
+      #{setuser,jdbcType=VARCHAR}, #{setdate,jdbcType=TIMESTAMP}, #{lstmuser,jdbcType=VARCHAR}, 
+      #{lstmdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCloudwalkPersonRegisterInfoModel">
+    insert into bcss_mem_cloudwalk_person_register_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        SEQ_ID,
+      </if>
+      <if test="corpId != null">
+        CORP_ID,
+      </if>
+      <if test="faceId != null">
+        FACE_ID,
+      </if>
+      <if test="applicationId != null">
+        APPLICATION_ID,
+      </if>
+      <if test="businessId != null">
+        BUSINESS_ID,
+      </if>
+      <if test="flownum != null">
+        FLOWNUM,
+      </if>
+      <if test="serverRegisterInfoCode != null">
+        SERVER_REGISTER_INFO_CODE,
+      </if>
+      <if test="channelCode != null">
+        CHANNEL_CODE,
+      </if>
+      <if test="serviceModelVersion != null">
+        SERVICE_MODEL_VERSION,
+      </if>
+      <if test="orgcode != null">
+        ORGCODE,
+      </if>
+      <if test="peopletype != null">
+        PEOPLETYPE,
+      </if>
+      <if test="viplevel != null">
+        VIPLEVEL,
+      </if>
+      <if test="certtype != null">
+        CERTTYPE,
+      </if>
+      <if test="certno != null">
+        CERTNO,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="sex != null">
+        SEX,
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY,
+      </if>
+      <if test="duty != null">
+        DUTY,
+      </if>
+      <if test="position != null">
+        POSITION,
+      </if>
+      <if test="telephone != null">
+        TELEPHONE,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="province != null">
+        PROVINCE,
+      </if>
+      <if test="city != null">
+        CITY,
+      </if>
+      <if test="area != null">
+        AREA,
+      </if>
+      <if test="backup1 != null">
+        BACKUP1,
+      </if>
+      <if test="backup2 != null">
+        BACKUP2,
+      </if>
+      <if test="backup3 != null">
+        BACKUP3,
+      </if>
+      <if test="backup4 != null">
+        BACKUP4,
+      </if>
+      <if test="setuser != null">
+        SETUSER,
+      </if>
+      <if test="setdate != null">
+        SETDATE,
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER,
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        #{seqId,jdbcType=BIGINT},
+      </if>
+      <if test="corpId != null">
+        #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="faceId != null">
+        #{faceId,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationId != null">
+        #{applicationId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessId != null">
+        #{businessId,jdbcType=VARCHAR},
+      </if>
+      <if test="flownum != null">
+        #{flownum,jdbcType=VARCHAR},
+      </if>
+      <if test="serverRegisterInfoCode != null">
+        #{serverRegisterInfoCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null">
+        #{channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceModelVersion != null">
+        #{serviceModelVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="orgcode != null">
+        #{orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="peopletype != null">
+        #{peopletype,jdbcType=VARCHAR},
+      </if>
+      <if test="viplevel != null">
+        #{viplevel,jdbcType=VARCHAR},
+      </if>
+      <if test="certtype != null">
+        #{certtype,jdbcType=VARCHAR},
+      </if>
+      <if test="certno != null">
+        #{certno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null">
+        #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCloudwalkPersonRegisterInfoModel">
+    update bcss_mem_cloudwalk_person_register_info
+    <set>
+      <if test="corpId != null">
+        CORP_ID = #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="faceId != null">
+        FACE_ID = #{faceId,jdbcType=VARCHAR},
+      </if>
+      <if test="applicationId != null">
+        APPLICATION_ID = #{applicationId,jdbcType=VARCHAR},
+      </if>
+      <if test="businessId != null">
+        BUSINESS_ID = #{businessId,jdbcType=VARCHAR},
+      </if>
+      <if test="flownum != null">
+        FLOWNUM = #{flownum,jdbcType=VARCHAR},
+      </if>
+      <if test="serverRegisterInfoCode != null">
+        SERVER_REGISTER_INFO_CODE = #{serverRegisterInfoCode,jdbcType=VARCHAR},
+      </if>
+      <if test="channelCode != null">
+        CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceModelVersion != null">
+        SERVICE_MODEL_VERSION = #{serviceModelVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="orgcode != null">
+        ORGCODE = #{orgcode,jdbcType=VARCHAR},
+      </if>
+      <if test="peopletype != null">
+        PEOPLETYPE = #{peopletype,jdbcType=VARCHAR},
+      </if>
+      <if test="viplevel != null">
+        VIPLEVEL = #{viplevel,jdbcType=VARCHAR},
+      </if>
+      <if test="certtype != null">
+        CERTTYPE = #{certtype,jdbcType=VARCHAR},
+      </if>
+      <if test="certno != null">
+        CERTNO = #{certno,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        SEX = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null">
+        DUTY = #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null">
+        POSITION = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="telephone != null">
+        TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        PROVINCE = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        CITY = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        AREA = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        SETUSER = #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCloudwalkPersonRegisterInfoModel">
+    update bcss_mem_cloudwalk_person_register_info
+    set CORP_ID = #{corpId,jdbcType=CHAR},
+      FACE_ID = #{faceId,jdbcType=VARCHAR},
+      APPLICATION_ID = #{applicationId,jdbcType=VARCHAR},
+      BUSINESS_ID = #{businessId,jdbcType=VARCHAR},
+      FLOWNUM = #{flownum,jdbcType=VARCHAR},
+      SERVER_REGISTER_INFO_CODE = #{serverRegisterInfoCode,jdbcType=VARCHAR},
+      CHANNEL_CODE = #{channelCode,jdbcType=VARCHAR},
+      SERVICE_MODEL_VERSION = #{serviceModelVersion,jdbcType=VARCHAR},
+      ORGCODE = #{orgcode,jdbcType=VARCHAR},
+      PEOPLETYPE = #{peopletype,jdbcType=VARCHAR},
+      VIPLEVEL = #{viplevel,jdbcType=VARCHAR},
+      CERTTYPE = #{certtype,jdbcType=VARCHAR},
+      CERTNO = #{certno,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=VARCHAR},
+      DUTY = #{duty,jdbcType=VARCHAR},
+      POSITION = #{position,jdbcType=VARCHAR},
+      TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      PROVINCE = #{province,jdbcType=VARCHAR},
+      CITY = #{city,jdbcType=VARCHAR},
+      AREA = #{area,jdbcType=VARCHAR},
+      BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      SETUSER = #{setuser,jdbcType=VARCHAR},
+      SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP}
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByCorpID2FaceID" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_cloudwalk_person_register_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and FACE_ID = #{faceId,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByCorpID2FaceID">
+    delete from bcss_mem_cloudwalk_person_register_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and FACE_ID = #{faceId,jdbcType=VARCHAR}
+  </delete>
+
+</mapper>

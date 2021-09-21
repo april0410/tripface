@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" name="provider">
+	<properties>
+		<property name="provider.log.home">logs</property>
+		<property name="provider.log.backup.home">logs</property>
+		<property name="provider.pattern">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %p %c{1.} %m%n</property>
+		<property name="provider.charset">utf-8</property>
+		<property name="max.file.size">20MB</property>
+		<property name="max.backup.file.count">100</property>
+	</properties>
+
+	<Appenders>
+		<Console name="stdout" target="SYSTEM_OUT" ignoreExceptions="false">
+			<PatternLayout>
+				<charset>${provider.charset}</charset>
+				<pattern>${provider.pattern}</pattern>
+			</PatternLayout>
+		</Console>
+
+
+		<RollingFile name="file.appender" fileName="${provider.log.home}/provider.log"
+			filePattern="${provider.log.backup.home}/$${date:yyyy-MM}/provider.%d{yyyyMMdd}.%i.bak.log"
+			immediateFlush="false" append="true">
+			<PatternLayout>
+				<charset>${provider.charset}</charset>
+				<pattern>${provider.pattern}</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="${max.file.size}" />
+			</Policies>
+			<DefaultRolloverStrategy max="${max.backup.file.count}" />
+		</RollingFile>
+		<Async name="async.appender">
+			<AppenderRef ref="file.appender" />
+		</Async>
+	</Appenders>
+
+	<Loggers>
+
+		<!-- other -->
+		<Root level="debug">
+			<AppenderRef ref="stdout" />
+			<AppenderRef ref="async.appender" />
+		</Root>
+	</Loggers>
+</Configuration>

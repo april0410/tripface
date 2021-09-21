@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icbc.bcss.member.face.operationtools.dao.BcssMemCustBaseInfoDao">
+  <resultMap id="BaseResultMap" type="com.icbc.bcss.member.face.operationtools.model.BcssMemCustBaseInfoModel">
+    <id column="SEQ_ID" jdbcType="BIGINT" property="seqId" />
+    <result column="FACE_ID" jdbcType="VARCHAR" property="faceId" />
+    <result column="CORP_ID" jdbcType="CHAR" property="corpId" />
+    <result column="PERSON_ID" jdbcType="VARCHAR" property="personId" />
+    <result column="SEQNO" jdbcType="VARCHAR" property="seqno" />
+    <result column="FACE_INDUSTRY" jdbcType="VARCHAR" property="faceIndustry" />
+    <result column="MEMCARDNO" jdbcType="VARCHAR" property="memcardno" />
+    <result column="MEMNAME" jdbcType="VARCHAR" property="memname" />
+    <result column="MEMNO" jdbcType="VARCHAR" property="memno" />
+    <result column="MEMPRODNO" jdbcType="VARCHAR" property="memprodno" />
+    <result column="MEMPRODDESC" jdbcType="VARCHAR" property="memproddesc" />
+    <result column="MEM_CARDSTATUS" jdbcType="TINYINT" property="memCardstatus" />
+    <result column="MEMDETAIL1" jdbcType="VARCHAR" property="memdetail1" />
+    <result column="MEMDETAIL2" jdbcType="VARCHAR" property="memdetail2" />
+    <result column="MEMDETAIL3" jdbcType="VARCHAR" property="memdetail3" />
+    <result column="DATA_SOURCE" jdbcType="VARCHAR" property="dataSource" />
+    <result column="CLOUD_FACE_CREATDATE" jdbcType="TIMESTAMP" property="cloudFaceCreatdate" />
+    <result column="CLOUD_FACE_MODIFIEDDATE" jdbcType="TIMESTAMP" property="cloudFaceModifieddate" />
+    <result column="SERVER_REGISTER_INFO_CODE" jdbcType="VARCHAR" property="serverRegisterInfoCode" />
+    <result column="BACKUP1" jdbcType="VARCHAR" property="backup1" />
+    <result column="BACKUP2" jdbcType="VARCHAR" property="backup2" />
+    <result column="BACKUP3" jdbcType="VARCHAR" property="backup3" />
+    <result column="BACKUP4" jdbcType="VARCHAR" property="backup4" />
+    <result column="BACKUP5" jdbcType="VARCHAR" property="backup5" />
+    <result column="BACKUP6" jdbcType="VARCHAR" property="backup6" />
+    <result column="BACKUP7" jdbcType="VARCHAR" property="backup7" />
+    <result column="BACKUP8" jdbcType="VARCHAR" property="backup8" />
+    <result column="BACKUP9" jdbcType="VARCHAR" property="backup9" />
+    <result column="BACKUP10" jdbcType="VARCHAR" property="backup10" />
+    <result column="SETUSER" jdbcType="VARCHAR" property="setuser" />
+    <result column="SETDATE" jdbcType="TIMESTAMP" property="setdate" />
+    <result column="LSTMUSER" jdbcType="VARCHAR" property="lstmuser" />
+    <result column="LSTMDATE" jdbcType="TIMESTAMP" property="lstmdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQ_ID, FACE_ID, CORP_ID, PERSON_ID, SEQNO, FACE_INDUSTRY, MEMCARDNO, MEMNAME, MEMNO, 
+    MEMPRODNO, MEMPRODDESC, MEM_CARDSTATUS, MEMDETAIL1, MEMDETAIL2, MEMDETAIL3, DATA_SOURCE, 
+    CLOUD_FACE_CREATDATE, CLOUD_FACE_MODIFIEDDATE, SERVER_REGISTER_INFO_CODE, BACKUP1, 
+    BACKUP2, BACKUP3, BACKUP4, BACKUP5, BACKUP6, BACKUP7, BACKUP8, BACKUP9, BACKUP10, 
+    SETUSER, SETDATE, LSTMUSER, LSTMDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bcss_mem_cust_base_info
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bcss_mem_cust_base_info
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCustBaseInfoModel">
+    insert into bcss_mem_cust_base_info (SEQ_ID, FACE_ID, CORP_ID,
+      PERSON_ID, SEQNO, FACE_INDUSTRY, 
+      MEMCARDNO, MEMNAME, MEMNO, 
+      MEMPRODNO, MEMPRODDESC, MEM_CARDSTATUS, 
+      MEMDETAIL1, MEMDETAIL2, MEMDETAIL3, 
+      DATA_SOURCE, CLOUD_FACE_CREATDATE, CLOUD_FACE_MODIFIEDDATE, 
+      SERVER_REGISTER_INFO_CODE, BACKUP1, BACKUP2, 
+      BACKUP3, BACKUP4, BACKUP5, 
+      BACKUP6, BACKUP7, BACKUP8, 
+      BACKUP9, BACKUP10, SETUSER, 
+      SETDATE, LSTMUSER, LSTMDATE
+      )
+    values (#{seqId,jdbcType=BIGINT}, #{faceId,jdbcType=VARCHAR}, #{corpId,jdbcType=CHAR}, 
+      #{personId,jdbcType=VARCHAR}, #{seqno,jdbcType=VARCHAR}, #{faceIndustry,jdbcType=VARCHAR}, 
+      #{memcardno,jdbcType=VARCHAR}, #{memname,jdbcType=VARCHAR}, #{memno,jdbcType=VARCHAR}, 
+      #{memprodno,jdbcType=VARCHAR}, #{memproddesc,jdbcType=VARCHAR}, #{memCardstatus,jdbcType=TINYINT}, 
+      #{memdetail1,jdbcType=VARCHAR}, #{memdetail2,jdbcType=VARCHAR}, #{memdetail3,jdbcType=VARCHAR}, 
+      #{dataSource,jdbcType=VARCHAR}, #{cloudFaceCreatdate,jdbcType=TIMESTAMP}, #{cloudFaceModifieddate,jdbcType=TIMESTAMP}, 
+      #{serverRegisterInfoCode,jdbcType=VARCHAR}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
+      #{backup3,jdbcType=VARCHAR}, #{backup4,jdbcType=VARCHAR}, #{backup5,jdbcType=VARCHAR}, 
+      #{backup6,jdbcType=VARCHAR}, #{backup7,jdbcType=VARCHAR}, #{backup8,jdbcType=VARCHAR}, 
+      #{backup9,jdbcType=VARCHAR}, #{backup10,jdbcType=VARCHAR}, #{setuser,jdbcType=VARCHAR}, 
+      #{setdate,jdbcType=TIMESTAMP}, #{lstmuser,jdbcType=VARCHAR}, #{lstmdate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCustBaseInfoModel">
+    insert into bcss_mem_cust_base_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        SEQ_ID,
+      </if>
+      <if test="faceId != null">
+        FACE_ID,
+      </if>
+      <if test="corpId != null">
+        CORP_ID,
+      </if>
+      <if test="personId != null">
+        PERSON_ID,
+      </if>
+      <if test="seqno != null">
+        SEQNO,
+      </if>
+      <if test="faceIndustry != null">
+        FACE_INDUSTRY,
+      </if>
+      <if test="memcardno != null">
+        MEMCARDNO,
+      </if>
+      <if test="memname != null">
+        MEMNAME,
+      </if>
+      <if test="memno != null">
+        MEMNO,
+      </if>
+      <if test="memprodno != null">
+        MEMPRODNO,
+      </if>
+      <if test="memproddesc != null">
+        MEMPRODDESC,
+      </if>
+      <if test="memCardstatus != null">
+        MEM_CARDSTATUS,
+      </if>
+      <if test="memdetail1 != null">
+        MEMDETAIL1,
+      </if>
+      <if test="memdetail2 != null">
+        MEMDETAIL2,
+      </if>
+      <if test="memdetail3 != null">
+        MEMDETAIL3,
+      </if>
+      <if test="dataSource != null">
+        DATA_SOURCE,
+      </if>
+      <if test="cloudFaceCreatdate != null">
+        CLOUD_FACE_CREATDATE,
+      </if>
+      <if test="cloudFaceModifieddate != null">
+        CLOUD_FACE_MODIFIEDDATE,
+      </if>
+      <if test="serverRegisterInfoCode != null">
+        SERVER_REGISTER_INFO_CODE,
+      </if>
+      <if test="backup1 != null">
+        BACKUP1,
+      </if>
+      <if test="backup2 != null">
+        BACKUP2,
+      </if>
+      <if test="backup3 != null">
+        BACKUP3,
+      </if>
+      <if test="backup4 != null">
+        BACKUP4,
+      </if>
+      <if test="backup5 != null">
+        BACKUP5,
+      </if>
+      <if test="backup6 != null">
+        BACKUP6,
+      </if>
+      <if test="backup7 != null">
+        BACKUP7,
+      </if>
+      <if test="backup8 != null">
+        BACKUP8,
+      </if>
+      <if test="backup9 != null">
+        BACKUP9,
+      </if>
+      <if test="backup10 != null">
+        BACKUP10,
+      </if>
+      <if test="setuser != null">
+        SETUSER,
+      </if>
+      <if test="setdate != null">
+        SETDATE,
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER,
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        #{seqId,jdbcType=BIGINT},
+      </if>
+      <if test="faceId != null">
+        #{faceId,jdbcType=VARCHAR},
+      </if>
+      <if test="corpId != null">
+        #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="personId != null">
+        #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="seqno != null">
+        #{seqno,jdbcType=VARCHAR},
+      </if>
+      <if test="faceIndustry != null">
+        #{faceIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="memcardno != null">
+        #{memcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="memname != null">
+        #{memname,jdbcType=VARCHAR},
+      </if>
+      <if test="memno != null">
+        #{memno,jdbcType=VARCHAR},
+      </if>
+      <if test="memprodno != null">
+        #{memprodno,jdbcType=VARCHAR},
+      </if>
+      <if test="memproddesc != null">
+        #{memproddesc,jdbcType=VARCHAR},
+      </if>
+      <if test="memCardstatus != null">
+        #{memCardstatus,jdbcType=TINYINT},
+      </if>
+      <if test="memdetail1 != null">
+        #{memdetail1,jdbcType=VARCHAR},
+      </if>
+      <if test="memdetail2 != null">
+        #{memdetail2,jdbcType=VARCHAR},
+      </if>
+      <if test="memdetail3 != null">
+        #{memdetail3,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSource != null">
+        #{dataSource,jdbcType=VARCHAR},
+      </if>
+      <if test="cloudFaceCreatdate != null">
+        #{cloudFaceCreatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cloudFaceModifieddate != null">
+        #{cloudFaceModifieddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serverRegisterInfoCode != null">
+        #{serverRegisterInfoCode,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="backup5 != null">
+        #{backup5,jdbcType=VARCHAR},
+      </if>
+      <if test="backup6 != null">
+        #{backup6,jdbcType=VARCHAR},
+      </if>
+      <if test="backup7 != null">
+        #{backup7,jdbcType=VARCHAR},
+      </if>
+      <if test="backup8 != null">
+        #{backup8,jdbcType=VARCHAR},
+      </if>
+      <if test="backup9 != null">
+        #{backup9,jdbcType=VARCHAR},
+      </if>
+      <if test="backup10 != null">
+        #{backup10,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCustBaseInfoModel">
+    update bcss_mem_cust_base_info
+    <set>
+      <if test="faceId != null">
+        FACE_ID = #{faceId,jdbcType=VARCHAR},
+      </if>
+      <if test="corpId != null">
+        CORP_ID = #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="personId != null">
+        PERSON_ID = #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="seqno != null">
+        SEQNO = #{seqno,jdbcType=VARCHAR},
+      </if>
+      <if test="faceIndustry != null">
+        FACE_INDUSTRY = #{faceIndustry,jdbcType=VARCHAR},
+      </if>
+      <if test="memcardno != null">
+        MEMCARDNO = #{memcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="memname != null">
+        MEMNAME = #{memname,jdbcType=VARCHAR},
+      </if>
+      <if test="memno != null">
+        MEMNO = #{memno,jdbcType=VARCHAR},
+      </if>
+      <if test="memprodno != null">
+        MEMPRODNO = #{memprodno,jdbcType=VARCHAR},
+      </if>
+      <if test="memproddesc != null">
+        MEMPRODDESC = #{memproddesc,jdbcType=VARCHAR},
+      </if>
+      <if test="memCardstatus != null">
+        MEM_CARDSTATUS = #{memCardstatus,jdbcType=TINYINT},
+      </if>
+      <if test="memdetail1 != null">
+        MEMDETAIL1 = #{memdetail1,jdbcType=VARCHAR},
+      </if>
+      <if test="memdetail2 != null">
+        MEMDETAIL2 = #{memdetail2,jdbcType=VARCHAR},
+      </if>
+      <if test="memdetail3 != null">
+        MEMDETAIL3 = #{memdetail3,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSource != null">
+        DATA_SOURCE = #{dataSource,jdbcType=VARCHAR},
+      </if>
+      <if test="cloudFaceCreatdate != null">
+        CLOUD_FACE_CREATDATE = #{cloudFaceCreatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cloudFaceModifieddate != null">
+        CLOUD_FACE_MODIFIEDDATE = #{cloudFaceModifieddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="serverRegisterInfoCode != null">
+        SERVER_REGISTER_INFO_CODE = #{serverRegisterInfoCode,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="backup5 != null">
+        BACKUP5 = #{backup5,jdbcType=VARCHAR},
+      </if>
+      <if test="backup6 != null">
+        BACKUP6 = #{backup6,jdbcType=VARCHAR},
+      </if>
+      <if test="backup7 != null">
+        BACKUP7 = #{backup7,jdbcType=VARCHAR},
+      </if>
+      <if test="backup8 != null">
+        BACKUP8 = #{backup8,jdbcType=VARCHAR},
+      </if>
+      <if test="backup9 != null">
+        BACKUP9 = #{backup9,jdbcType=VARCHAR},
+      </if>
+      <if test="backup10 != null">
+        BACKUP10 = #{backup10,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        SETUSER = #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemCustBaseInfoModel">
+    update bcss_mem_cust_base_info
+    set FACE_ID = #{faceId,jdbcType=VARCHAR},
+      CORP_ID = #{corpId,jdbcType=CHAR},
+      PERSON_ID = #{personId,jdbcType=VARCHAR},
+      SEQNO = #{seqno,jdbcType=VARCHAR},
+      FACE_INDUSTRY = #{faceIndustry,jdbcType=VARCHAR},
+      MEMCARDNO = #{memcardno,jdbcType=VARCHAR},
+      MEMNAME = #{memname,jdbcType=VARCHAR},
+      MEMNO = #{memno,jdbcType=VARCHAR},
+      MEMPRODNO = #{memprodno,jdbcType=VARCHAR},
+      MEMPRODDESC = #{memproddesc,jdbcType=VARCHAR},
+      MEM_CARDSTATUS = #{memCardstatus,jdbcType=TINYINT},
+      MEMDETAIL1 = #{memdetail1,jdbcType=VARCHAR},
+      MEMDETAIL2 = #{memdetail2,jdbcType=VARCHAR},
+      MEMDETAIL3 = #{memdetail3,jdbcType=VARCHAR},
+      DATA_SOURCE = #{dataSource,jdbcType=VARCHAR},
+      CLOUD_FACE_CREATDATE = #{cloudFaceCreatdate,jdbcType=TIMESTAMP},
+      CLOUD_FACE_MODIFIEDDATE = #{cloudFaceModifieddate,jdbcType=TIMESTAMP},
+      SERVER_REGISTER_INFO_CODE = #{serverRegisterInfoCode,jdbcType=VARCHAR},
+      BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      BACKUP5 = #{backup5,jdbcType=VARCHAR},
+      BACKUP6 = #{backup6,jdbcType=VARCHAR},
+      BACKUP7 = #{backup7,jdbcType=VARCHAR},
+      BACKUP8 = #{backup8,jdbcType=VARCHAR},
+      BACKUP9 = #{backup9,jdbcType=VARCHAR},
+      BACKUP10 = #{backup10,jdbcType=VARCHAR},
+      SETUSER = #{setuser,jdbcType=VARCHAR},
+      SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP}
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+
+  <!---->
+  <select id="selectByCorpId2PersonId2SeqNo"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_cust_base_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and PERSON_ID = #{personId,jdbcType=VARCHAR}
+    and SEQNO = #{seqno,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByFaceId"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_cust_base_info
+    where FACE_ID = #{faceId,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByCorpId2PersonId2SeqNo" >
+    delete from bcss_mem_cust_base_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and PERSON_ID = #{personId,jdbcType=VARCHAR}
+        and SEQNO = #{seqno,jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteByFaceId" >
+    delete from bcss_mem_cust_base_info
+    where FACE_ID = #{faceId,jdbcType=VARCHAR}
+  </delete>
+
+
+  <select id="selectByCorpId2FaceId"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_cust_base_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and FACE_ID = #{faceId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByCorpId2MemCardNo"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_cust_base_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and MEMCARDNO = #{memcardno,jdbcType=VARCHAR}
+  </select>
+
+</mapper>

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icbc.bcss.member.face.operationtools.dao.BcssMemOrderCouponInfoDao">
+  <resultMap id="BaseResultMap" type="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderCouponInfoModel">
+    <id column="SEQ_ID" jdbcType="BIGINT" property="seqId" />
+    <result column="CORP_ID" jdbcType="CHAR" property="corpId" />
+    <result column="corgNo" jdbcType="VARCHAR" property="corgno" />
+    <result column="TRXSEQNO" jdbcType="VARCHAR" property="trxseqno" />
+    <result column="SEQNO" jdbcType="INTEGER" property="seqno" />
+    <result column="COUPONNO" jdbcType="VARCHAR" property="couponno" />
+    <result column="COUPONAMT" jdbcType="DECIMAL" property="couponamt" />
+    <result column="COUPONTYPE" jdbcType="VARCHAR" property="coupontype" />
+    <result column="COUPONNUM" jdbcType="DECIMAL" property="couponnum" />
+    <result column="COUPONDETAIL1" jdbcType="VARCHAR" property="coupondetail1" />
+    <result column="COUPONDETAIL2" jdbcType="VARCHAR" property="coupondetail2" />
+    <result column="BACKUP1" jdbcType="VARCHAR" property="backup1" />
+    <result column="BACKUP2" jdbcType="VARCHAR" property="backup2" />
+    <result column="BACKUP3" jdbcType="VARCHAR" property="backup3" />
+    <result column="BACKUP4" jdbcType="VARCHAR" property="backup4" />
+    <result column="SETUSER" jdbcType="VARCHAR" property="setuser" />
+    <result column="SETDATE" jdbcType="TIMESTAMP" property="setdate" />
+    <result column="LSTMUSER" jdbcType="VARCHAR" property="lstmuser" />
+    <result column="LSTMDATE" jdbcType="TIMESTAMP" property="lstmdate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SEQ_ID, CORP_ID, corgNo, TRXSEQNO, SEQNO, COUPONNO, COUPONAMT, COUPONTYPE, COUPONNUM, 
+    COUPONDETAIL1, COUPONDETAIL2, BACKUP1, BACKUP2, BACKUP3, BACKUP4, SETUSER, SETDATE, 
+    LSTMUSER, LSTMDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from bcss_mem_order_coupon_info
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from bcss_mem_order_coupon_info
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderCouponInfoModel">
+    insert into bcss_mem_order_coupon_info (SEQ_ID, CORP_ID, corgNo, 
+      TRXSEQNO, SEQNO, COUPONNO, 
+      COUPONAMT, COUPONTYPE, COUPONNUM, 
+      COUPONDETAIL1, COUPONDETAIL2, BACKUP1, 
+      BACKUP2, BACKUP3, BACKUP4, 
+      SETUSER, SETDATE, LSTMUSER, 
+      LSTMDATE)
+    values (#{seqId,jdbcType=BIGINT}, #{corpId,jdbcType=CHAR}, #{corgno,jdbcType=VARCHAR}, 
+      #{trxseqno,jdbcType=VARCHAR}, #{seqno,jdbcType=INTEGER}, #{couponno,jdbcType=VARCHAR}, 
+      #{couponamt,jdbcType=DECIMAL}, #{coupontype,jdbcType=VARCHAR}, #{couponnum,jdbcType=DECIMAL}, 
+      #{coupondetail1,jdbcType=VARCHAR}, #{coupondetail2,jdbcType=VARCHAR}, #{backup1,jdbcType=VARCHAR}, 
+      #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR}, #{backup4,jdbcType=VARCHAR}, 
+      #{setuser,jdbcType=VARCHAR}, #{setdate,jdbcType=TIMESTAMP}, #{lstmuser,jdbcType=VARCHAR}, 
+      #{lstmdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderCouponInfoModel">
+    insert into bcss_mem_order_coupon_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        SEQ_ID,
+      </if>
+      <if test="corpId != null">
+        CORP_ID,
+      </if>
+      <if test="corgno != null">
+        corgNo,
+      </if>
+      <if test="trxseqno != null">
+        TRXSEQNO,
+      </if>
+      <if test="seqno != null">
+        SEQNO,
+      </if>
+      <if test="couponno != null">
+        COUPONNO,
+      </if>
+      <if test="couponamt != null">
+        COUPONAMT,
+      </if>
+      <if test="coupontype != null">
+        COUPONTYPE,
+      </if>
+      <if test="couponnum != null">
+        COUPONNUM,
+      </if>
+      <if test="coupondetail1 != null">
+        COUPONDETAIL1,
+      </if>
+      <if test="coupondetail2 != null">
+        COUPONDETAIL2,
+      </if>
+      <if test="backup1 != null">
+        BACKUP1,
+      </if>
+      <if test="backup2 != null">
+        BACKUP2,
+      </if>
+      <if test="backup3 != null">
+        BACKUP3,
+      </if>
+      <if test="backup4 != null">
+        BACKUP4,
+      </if>
+      <if test="setuser != null">
+        SETUSER,
+      </if>
+      <if test="setdate != null">
+        SETDATE,
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER,
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="seqId != null">
+        #{seqId,jdbcType=BIGINT},
+      </if>
+      <if test="corpId != null">
+        #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="corgno != null">
+        #{corgno,jdbcType=VARCHAR},
+      </if>
+      <if test="trxseqno != null">
+        #{trxseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="seqno != null">
+        #{seqno,jdbcType=INTEGER},
+      </if>
+      <if test="couponno != null">
+        #{couponno,jdbcType=VARCHAR},
+      </if>
+      <if test="couponamt != null">
+        #{couponamt,jdbcType=DECIMAL},
+      </if>
+      <if test="coupontype != null">
+        #{coupontype,jdbcType=VARCHAR},
+      </if>
+      <if test="couponnum != null">
+        #{couponnum,jdbcType=DECIMAL},
+      </if>
+      <if test="coupondetail1 != null">
+        #{coupondetail1,jdbcType=VARCHAR},
+      </if>
+      <if test="coupondetail2 != null">
+        #{coupondetail2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderCouponInfoModel">
+    update bcss_mem_order_coupon_info
+    <set>
+      <if test="corpId != null">
+        CORP_ID = #{corpId,jdbcType=CHAR},
+      </if>
+      <if test="corgno != null">
+        corgNo = #{corgno,jdbcType=VARCHAR},
+      </if>
+      <if test="trxseqno != null">
+        TRXSEQNO = #{trxseqno,jdbcType=VARCHAR},
+      </if>
+      <if test="seqno != null">
+        SEQNO = #{seqno,jdbcType=INTEGER},
+      </if>
+      <if test="couponno != null">
+        COUPONNO = #{couponno,jdbcType=VARCHAR},
+      </if>
+      <if test="couponamt != null">
+        COUPONAMT = #{couponamt,jdbcType=DECIMAL},
+      </if>
+      <if test="coupontype != null">
+        COUPONTYPE = #{coupontype,jdbcType=VARCHAR},
+      </if>
+      <if test="couponnum != null">
+        COUPONNUM = #{couponnum,jdbcType=DECIMAL},
+      </if>
+      <if test="coupondetail1 != null">
+        COUPONDETAIL1 = #{coupondetail1,jdbcType=VARCHAR},
+      </if>
+      <if test="coupondetail2 != null">
+        COUPONDETAIL2 = #{coupondetail2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup1 != null">
+        BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="backup4 != null">
+        BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      </if>
+      <if test="setuser != null">
+        SETUSER = #{setuser,jdbcType=VARCHAR},
+      </if>
+      <if test="setdate != null">
+        SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lstmuser != null">
+        LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      </if>
+      <if test="lstmdate != null">
+        LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.icbc.bcss.member.face.operationtools.model.BcssMemOrderCouponInfoModel">
+    update bcss_mem_order_coupon_info
+    set CORP_ID = #{corpId,jdbcType=CHAR},
+      corgNo = #{corgno,jdbcType=VARCHAR},
+      TRXSEQNO = #{trxseqno,jdbcType=VARCHAR},
+      SEQNO = #{seqno,jdbcType=INTEGER},
+      COUPONNO = #{couponno,jdbcType=VARCHAR},
+      COUPONAMT = #{couponamt,jdbcType=DECIMAL},
+      COUPONTYPE = #{coupontype,jdbcType=VARCHAR},
+      COUPONNUM = #{couponnum,jdbcType=DECIMAL},
+      COUPONDETAIL1 = #{coupondetail1,jdbcType=VARCHAR},
+      COUPONDETAIL2 = #{coupondetail2,jdbcType=VARCHAR},
+      BACKUP1 = #{backup1,jdbcType=VARCHAR},
+      BACKUP2 = #{backup2,jdbcType=VARCHAR},
+      BACKUP3 = #{backup3,jdbcType=VARCHAR},
+      BACKUP4 = #{backup4,jdbcType=VARCHAR},
+      SETUSER = #{setuser,jdbcType=VARCHAR},
+      SETDATE = #{setdate,jdbcType=TIMESTAMP},
+      LSTMUSER = #{lstmuser,jdbcType=VARCHAR},
+      LSTMDATE = #{lstmdate,jdbcType=TIMESTAMP}
+    where SEQ_ID = #{seqId,jdbcType=BIGINT}
+  </update>
+
+  <!---->
+  <select id="selectByCorpId2Trxseqno"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_order_coupon_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and TRXSEQNO = #{trxseqno,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByCorpId2Trxseqno" >
+    delete from bcss_mem_order_coupon_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+        and TRXSEQNO = #{trxseqno,jdbcType=VARCHAR}
+  </delete>
+
+  <select id="selectByCorpId2Trxseqno2Seqno"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_order_coupon_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and TRXSEQNO = #{trxseqno,jdbcType=VARCHAR}
+    and SEQNO = #{seqno,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByCorpId2CouponNo"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from bcss_mem_order_coupon_info
+    where CORP_ID = #{corpId,jdbcType=CHAR}
+    and COUPONNO = #{couponno,jdbcType=VARCHAR}
+  </select>
+
+</mapper>
